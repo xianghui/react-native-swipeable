@@ -43,13 +43,24 @@ function MyListItem() {
 | `leftButtons`                   | renderable[] | `null`  | (optional) array of buttons, first being the innermost; ignored if `leftContent` present  |
 | `rightButtons`                  | renderable[] | `null`  | (optional) array of buttons, first being the innermost; ignored if `rightContent` present |
 | `leftActionActivationDistance`  | integer      | 125     | (optional) minimum swipe distance to activate left action                                 |
+| `leftActionActivationDistance2` | integer      | 200     | (optional) minimum swipe distance to activate left action                                 |
 | `onLeftActionRelease`           | function     | `null`  | (optional) user has swiped beyond `leftActionActivationDistance` and released             |
+| `onLeftActionRelease2`          | function     | `null`  | (optional) user has swiped beyond `leftActionActivationDistance2` and released             |
 | `rightActionActivationDistance` | integer      | 125     | (optional) minimum swipe distance to activate right action                                |
+| `rightActionActivationDistance2`| integer      | 200     | (optional) minimum swipe distance to activate right action                                |
 | `onRightActionRelease`          | function     | `null`  | (optional) user has swiped beyond `rightActionActivationDistance` and released            |
+| `onRightActionRelease2`         | function     | `null`  | (optional) user has swiped beyond `rightActionActivationDistance2` and released            |
 | `leftButtonWidth`               | integer      | 75      | (optional) resting visible peek of each left button after buttons are swiped open         |
 | `rightButtonWidth`              | integer      | 75      | (optional) resting visible peek of each right button after buttons are swiped open        |
 | `onRef`                         | function     | `null`  | (optional) receive swipeable component instance reference                                 |
 | `onPanAnimatedValueRef`         | function     | `null`  | (optional) receive swipeable pan `Animated.ValueXY` reference for upstream animations     |
+
+
+### Main Enhancements
+
+Allow 2 levels of left/right action (using leftActionActivationDistance2 and rightActionActivationDistance2).
+Can use onLeftActionActivate2, onLeftActionDeactivate2, onLeftActionComplete2 to handle the "deeper" right swipe. Note that when onLeftActionDeactivate2 and onLeftActionComplete2 are triggered, onLeftActionDeactivate and onLeftActionComplete will not be triggered.
+Can use onRightActionActivate2, onRightActionDeactivate2, onRightActionComplete2 to handle the "deeper" left swipe. Similar concepts to the LeftAction cases.
 
 ### Advanced Props
 
